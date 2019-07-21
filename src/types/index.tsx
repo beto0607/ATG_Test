@@ -11,7 +11,7 @@ type FavoriteInfo = {
         distribution: number
     }
 };
-type GameInfo = {
+export type GameInfo = {
     id: string,
     startTime: string, // YYYY-MM-DDThh:mm:ss
     tracks: Array<TrackInfo>,
@@ -19,7 +19,7 @@ type GameInfo = {
 }
 //ENDPOINT RESPONSE
 //https://www.atg.se/services/racinginfo/v1/api/products/<gameType>
-type GameSchedule = {
+export type GameSchedule = {
     betType: string,
     upcoming: Array<GameInfo>,
     results: Array<GameInfo>
@@ -59,6 +59,6 @@ type GameResponse = {
 };
 
 export interface ApplicationState {
-    game_schedule: GameSchedule;
-    game_data: GameResponse;
+    gameSchedule: GameSchedule;
+    gameData: GameResponse;
 }
