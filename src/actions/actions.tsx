@@ -9,16 +9,14 @@ import { AnyAction } from 'redux';
 // Action Creators
 
 export const getGameSchedule = (text: string): ThunkAction<Promise<void>, {}, {}, AnyAction> => {
-    console.log("getGameSchedule");
     return async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => {
         return fetch(`http://localhost:3001/api/products/${text}`)
             .then(response => response.json())
             .then(json => {
-                console.log(json);
-                dispatch({ type: "GAME_SCHEDULE_LOADED", payload: json });
+                dispatch({ type: "GAME_SCHEDULE_LOADED", payload: { text: text, game_schedule: json } });
             }).catch((err) => {
-                console.log(err);
-                dispatch({ type: "GAME_SCHEDULE_LOADED", payload: {} });
+                console.error(err);
+                dispatch({ type: "GAME_SCHEDULE_LOADED", payload: { text: text, game_schedule: {} } });
             });
     }
 }

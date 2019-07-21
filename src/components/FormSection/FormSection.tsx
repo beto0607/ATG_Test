@@ -31,15 +31,6 @@ const ConnectedForm: React.FC = (props: any) => {
     );
 };
 
-// export default FormSection;
-
-// function mapStateToProps(state: any) {
-//     return { text: state.text };
-// }
-// export default connect(
-//     mapStateToProps,
-//     { getGameSchedule }
-// )(FormSection);
 function mapDispatchToProps(dispatch: any) {
     return {
         getGameSchedule: (text: string) => dispatch(getGameSchedule(text))

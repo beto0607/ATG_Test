@@ -5,12 +5,13 @@ import { Provider } from "react-redux";
 import Layout from './layout/Layout';
 import FormSection from './components/FormSection/FormSection';
 import store from './store';
+import InfoSection from './components/InfoSection/InfoSection';
 
 const App: React.FC = () => (
   <Provider store={store}>
     <Layout>
       <FormSection />
-      <div>Wacala</div>
+      <InfoSection />
     </Layout>
   </Provider>
 );

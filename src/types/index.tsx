@@ -59,7 +59,6 @@ type GameResponse = {
 };
 
 export interface ApplicationState {
-    text: string;
     game_schedule: GameSchedule;
     game_data: GameResponse;
 }

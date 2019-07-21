@@ -2,14 +2,24 @@ import { GAME_SCHEDULE_LOADED, GAME_RESPONSE_LOADED } from '../constants/action-
 // import store from '../store/index';
 
 const initState = {
-    game_schedule: [],
+    text: '',
+    game_schedule: {},
     game_data: []
 };
 
 const rootReducer = (state: any = initState, action: any) => {
     switch (action.type) {
         case GAME_SCHEDULE_LOADED:
-            return { ...state, game_schedule: [...state.game_schedule, action.payload] };
+            return {
+                ...state,
+                text: action.payload.text,
+                game_schedule: { ...state.game_schedule, ...action.payload.game_schedule }
+            };
+        // return {
+        //     ...state,
+        //     text: action.payload.text,
+        //     game_schedule: [...state.game_schedule, action.payload.game_schedule]
+        // };
         case GAME_RESPONSE_LOADED:
             return { ...state, game_response: [...state.game_response, action.payload] };
         default:
