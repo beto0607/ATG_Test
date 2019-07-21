@@ -11,7 +11,7 @@ app.get('/api/products/:gameType', async (req, res)=>{
 	let data = await response.json();
 	res.send(data);
 });
-app.get('/api/gameType/:gameId', async (req, res)=>{
+app.get('/api/games/:gameId', async (req, res)=>{
 	let response = await fetch('https://www.atg.se/services/racinginfo/v1/api/games/'+req.params.gameId);
 	let data = await response.json();
 	res.send(data);
