@@ -1,5 +1,6 @@
 import React from "react";
 import { GameInfo } from '../../types/index';
+import { ListGroup, Container, Row, Col, Badge } from "react-bootstrap";
 import GameInfoComponent from './GameInfoComponent';
 
 interface Props {
@@ -9,12 +10,23 @@ interface Props {
 
 const GameSchedule: React.FC<Props> = ({ title, games }: Props) => {
     return (
-        <div>
-            <h4>{title}</h4>
-            <ul>
-                {games.map((element) => <GameInfoComponent key={element.id} {...element} />)}
-            </ul>
-        </div>
+        <Container>
+            <Row>
+                <Col>
+                    <h3>
+                        Game: {' ' + title}
+                    </h3>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <ListGroup>
+                        {games.map((element) => <GameInfoComponent key={element.id} {...element} />)}
+                    </ListGroup>
+                </Col>
+
+            </Row>
+        </Container>
     );
 };
 

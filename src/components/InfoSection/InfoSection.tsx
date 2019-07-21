@@ -4,37 +4,42 @@ import { connect } from "react-redux";
 import { getGameSchedule } from "../../actions/actions";
 import GameSchedule from './GameSchedule';
 import { GameSchedule as GameScheduleType } from '../../types/index';
+import { Container, Row, Col, Badge } from "react-bootstrap";
 
-interface Props {
+interface TitleProps {
+    text: string;
+    betType: string;
+}
+const Title: React.FC<TitleProps> = ({ text, betType }: TitleProps) => (
+    <h2>
+        {!text ? 'You can search for a Game now' : (betType || `Game "${text}" not found`)}
+    </h2>
+);
+
+interface ConnectedInfoSectionProps {
     text: string;
     gameSchedule: GameScheduleType;
-}
-
-const ConnectedInfoSection: React.FC<Props> = ({ text, gameSchedule }: Props) => {
-    if (!text) {
-        return (
-            <div className={styles['info-section']}>
-                <h3>You can search for a Game now</h3>
-            </div>
-        )
-    }
-    if (!gameSchedule.betType) {
-        return (
-            <div className={styles['info-section']}>
-                <h3>404 - Game "{text}" not found</h3>
-            </div>
-        )
-    }
-    return (
-        <div className={styles['info-section']}>
-            <h3>{gameSchedule.betType}</h3>
-            <div className={styles['game-schedule-wrapper']}>
-                <GameSchedule title={"Closests upcomings"} games={gameSchedule.upcoming} />
-                <GameSchedule title={"Closets results"} games={gameSchedule.results} />
-            </div>
-        </div>
-    );
 };
+
+const ConnectedInfoSection: React.FC<ConnectedInfoSectionProps> = ({ text, gameSchedule }: ConnectedInfoSectionProps) => (
+    <Container className={styles['info-section']}>
+        <Row>
+            <Col>
+                <Title text={text} betType={gameSchedule.betType || ''} />
+
+            </Col>
+        </Row>
+        <Row>
+            <Col>
+                {gameSchedule.upcoming && <GameSchedule title={"Closests upcomings"} games={gameSchedule.upcoming || []} />}
+            </Col>
+            <Col>
+                {gameSchedule.results && <GameSchedule title={"Closets results"} games={gameSchedule.results || []} />}
+            </Col>
+        </Row>
+    </Container>
+);
+
 function mapStateToProps(state: any) {
     return {
         text: state.text,
@@ -42,11 +47,5 @@ function mapStateToProps(state: any) {
     };
 }
 
-function mapDispatchToProps(dispatch: any) {
-    return {
-        getGameSchedule: (text: string) => dispatch(getGameSchedule(text))
-    };
-}
-
-const InfoSection = connect(mapStateToProps, mapDispatchToProps)(ConnectedInfoSection);
+const InfoSection = connect(mapStateToProps)(ConnectedInfoSection);
 export default InfoSection;
