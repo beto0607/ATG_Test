@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { Form, FormControlProps, Button } from 'react-bootstrap';
 import styles from './form-section.module.scss';
+import { connect } from "react-redux";
+import { getGameSchedule } from "../../actions/actions";
 
 
-const FormSection: React.FC = () => {
+const ConnectedForm: React.FC = (props: any) => {
     const [text, setText] = useState('');
-    const handleSumbit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSumbit = (event: React.FormEvent<HTMLFormElement>, getGameSchedule: any) => {
         event.preventDefault();
-        console.log(text);
+        getGameSchedule(text);
     };
     return (
         <div className={styles['form-section']}>
-            <Form onSubmit={handleSumbit}>
+            <Form onSubmit={(event: React.FormEvent<HTMLFormElement>) => { handleSumbit(event, props.getGameSchedule); }}>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Search for a game</Form.Label>
                     <Form.Control
@@ -29,4 +31,20 @@ const FormSection: React.FC = () => {
     );
 };
 
+// export default FormSection;
+
+// function mapStateToProps(state: any) {
+//     return { text: state.text };
+// }
+// export default connect(
+//     mapStateToProps,
+//     { getGameSchedule }
+// )(FormSection);
+function mapDispatchToProps(dispatch: any) {
+    return {
+        getGameSchedule: (text: string) => dispatch(getGameSchedule(text))
+    };
+}
+
+const FormSection = connect(null, mapDispatchToProps)(ConnectedForm);
 export default FormSection;
