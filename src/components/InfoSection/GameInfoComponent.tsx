@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { GameInfo } from '../../types/index';
 
 const GameInfoComponent: React.FC<GameInfo> = ({ id, startTime, tracks, favorites }: GameInfo) => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './info-section.module.scss';
 import { connect } from "react-redux";
 import { getGameSchedule } from "../../actions/actions";
