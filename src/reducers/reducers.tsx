@@ -3,8 +3,8 @@ import { GAME_SCHEDULE_LOADED, GAME_RESPONSE_LOADED } from '../constants/action-
 
 const initState = {
     text: '',
-    game_schedule: {},
-    game_data: []
+    gameSchedule: {},
+    gameData: []
 };
 
 const rootReducer = (state: any = initState, action: any) => {
@@ -13,13 +13,8 @@ const rootReducer = (state: any = initState, action: any) => {
             return {
                 ...state,
                 text: action.payload.text,
-                game_schedule: { ...state.game_schedule, ...action.payload.game_schedule }
+                gameSchedule: { ...state.gameSchedule, ...action.payload.gameSchedule }
             };
-        // return {
-        //     ...state,
-        //     text: action.payload.text,
-        //     game_schedule: [...state.game_schedule, action.payload.game_schedule]
-        // };
         case GAME_RESPONSE_LOADED:
             return { ...state, game_response: [...state.game_response, action.payload] };
         default:
