@@ -1,20 +1,16 @@
 import React from 'react';
 import styles from './info-section.module.scss';
 import { connect } from "react-redux";
-import { getGameSchedule } from "../../actions/actions";
 import GameSchedule from './GameSchedule';
 import { GameSchedule as GameScheduleType } from '../../types/index';
-import { Container, Row, Col, Badge } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 interface TitleProps {
     text: string;
     betType: string;
 }
-const Title: React.FC<TitleProps> = ({ text, betType }: TitleProps) => (
-    <h2>
-        {!text ? 'You can search for a Game now' : (betType || `Game "${text}" not found`)}
-    </h2>
-);
+const Title: React.FC<TitleProps> = 
+    ({ text, betType }: TitleProps) => (<h2>{!text ? 'You can search for a Game now' : (betType || `Game "${text}" not found`)}</h2>);
 
 interface ConnectedInfoSectionProps {
     text: string;
@@ -24,9 +20,8 @@ interface ConnectedInfoSectionProps {
 const ConnectedInfoSection: React.FC<ConnectedInfoSectionProps> = ({ text, gameSchedule }: ConnectedInfoSectionProps) => (
     <Container className={styles['info-section']}>
         <Row>
-            <Col>
+            <Col className={styles['title-wrapper']}>
                 <Title text={text} betType={gameSchedule.betType || ''} />
-
             </Col>
         </Row>
         <Row>

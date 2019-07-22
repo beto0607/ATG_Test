@@ -16,7 +16,7 @@ const GameInfoComponent: React.FC<GameInfo> = ({ id, startTime, tracks, favorite
             >
                 Race starts:{' '} 
                 <Moment
-                    format="HH:mm DD-MM-YYYY "
+                    format="HH:mm"
                     date={startTime}
                     interval={0}
                 />
