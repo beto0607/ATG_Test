@@ -24,42 +24,42 @@ export type GameSchedule = {
     upcoming: Array<GameInfo>,
     results: Array<GameInfo>
 };
-
-type RaceStart = {
-    number: number,
-    driver: {
-        firstName: string,
-        lastName: string
-    },
-    horse: {
-        name: string,
-        trainer: {
-            firstName: string,
-            lastName: string
-        },
-        pedigree: {
-            father: {
-                name: string
-            }
+export type Person = {
+    firstName: string,
+    lastName: string
+}
+export type Horse = {
+    name: string,
+    trainer: Person,
+    pedigree: {
+        father: {
+            name: string
         }
     }
 }
-type GameRace = {
-    date: string,
-    name: string,
-    scheduledStartTime: string,
-    starts: Array<RaceStart>
+export type RaceStart = {
+    number: number,
+    driver: Person,
+    horse: Horse
+}
+export type Race = {
+    id: string;
+    name?: string;
+    date: string;
+    number: number;
+    scheduledStartTime: string;
+    starts: Array<RaceStart>;
 }
 //ENDPOINT RESPONSE
 // https://www.atg.se/services/racinginfo/v1/api/games/<gameId>
-type GameResponse = {
+export type GameData = {
     id: string,
     status: string,
-    races: Array<GameRace>
+    races: Array<Race>
 };
 
 export interface ApplicationState {
     text: string;
     gameSchedule: GameSchedule;
-    gameData: GameResponse;
+    gameData: Array<GameData>;
 }

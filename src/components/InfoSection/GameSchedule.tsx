@@ -44,7 +44,6 @@ const GameInfoDay: React.FC<GameInfoDayProps> = ({ day, games }: GameInfoDayProp
 };
 const GameSchedule: React.FC<Props> = ({ title, games }: Props) => {
     const gameByDate: Array<GameInfoDayProps> = groupByDay(games);
-    console.log(gameByDate);
     return (
         <div className={styles['']}>
             <h3>

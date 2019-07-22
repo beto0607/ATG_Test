@@ -1,0 +1,17 @@
+.start-container {
+    // border: 1px solid #ccc;
+    margin: 10px auto;
+    .start-title-container {
+        cursor: pointer;
+        padding: 10px 20px;
+    }
+    span {
+        display: block;
+    }
+}
+.race-container {
+    border: 1px solid #ccc;
+    .race-title-container {
+        margin: 20px auto;
+    }
+}

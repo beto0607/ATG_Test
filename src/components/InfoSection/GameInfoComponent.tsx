@@ -1,22 +1,23 @@
 import React, { useState } from "react";
-import { GameInfo } from '../../types/index';
 import { Collapse, Button, ListGroupItem } from "react-bootstrap";
 import Moment from 'react-moment';
 import styles from './info-section.module.scss';
+import { GameInfo } from '../../types/index';
+import { GameDataComponent } from './GameDataComponent';
 
-
-
-const GameInfoComponent: React.FC<GameInfo> = ({ id, startTime, tracks, favorites }: GameInfo) => {
+const GameInfoComponent: React.FC<GameInfo> = ({ id, startTime }: GameInfo) => {
     const [open, setOpen] = useState(false);
-
+    const handleOpenClick = () => {
+        setOpen(!open);
+    }
     return (
         <ListGroupItem className={styles['list-group-item']}>
             <Button
-                onClick={() => setOpen(!open)}
+                onClick={handleOpenClick}
                 aria-controls="example-collapse-text"
                 aria-expanded={open}
             >
-                Race starts:{' '} 
+                Race starts:{' '}
                 <Moment
                     format="HH:mm"
                     date={startTime}
@@ -24,14 +25,11 @@ const GameInfoComponent: React.FC<GameInfo> = ({ id, startTime, tracks, favorite
                 />
             </Button>
             <Collapse in={open}>
-                <div id="example-collapse-text">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                    terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-                    labore wes anderson cred nesciunt sapiente ea proident.
+                <div>
+                    <GameDataComponent parent_id={id} load={open} />
                 </div>
             </Collapse>
         </ListGroupItem>
     );
 };
-
 export default GameInfoComponent;
