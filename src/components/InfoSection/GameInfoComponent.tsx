@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { GameInfo } from '../../types/index';
 import { Collapse, Button, ListGroupItem } from "react-bootstrap";
 import Moment from 'react-moment';
+import styles from './info-section.module.scss';
+
 
 
 const GameInfoComponent: React.FC<GameInfo> = ({ id, startTime, tracks, favorites }: GameInfo) => {
     const [open, setOpen] = useState(false);
 
     return (
-        <ListGroupItem>
+        <ListGroupItem className={styles['list-group-item']}>
             <Button
                 onClick={() => setOpen(!open)}
                 aria-controls="example-collapse-text"

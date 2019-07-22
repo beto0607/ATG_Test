@@ -1,3 +1,27 @@
-.info-section {
-    // display: flex;
+$box-border: 1px solid #666;
+.day {
+    display: block;
+    width: fit-content;
+    padding: 4px 10px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.list-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    justify-items: left;
+    .list-group-item {
+        display: block;
+        flex-basis: 100%;
+        margin: 10px auto;
+        text-align: center;
+        border-color: transparent;
+    }
+}
+.game-info-day-container {
+    border: $box-border;
+    padding: 20px;
+    margin: 10px auto;
 }

@@ -2,6 +2,8 @@ import React from "react";
 import { GameInfo } from '../../types/index';
 import { ListGroup } from "react-bootstrap";
 import GameInfoComponent from './GameInfoComponent';
+import Moment from 'react-moment';
+import styles from './info-section.module.scss';
 
 interface Props {
     title: string;
@@ -13,9 +15,9 @@ interface GameInfoDayProps {
 }
 // Get the first part of a ISO Date type string
 function getDateFromString(text: string): string { return text.split('T')[0] }
-// Splits the games array into several arrays by date(YYYY-MM-DD)
-// The games of the same day will be in the same arrayF
-function splitGames(games: Array<GameInfo>): Array<GameInfoDayProps> {
+// Splits the games array into several arrays by day(YYYY-MM-DD)
+// The games of the same day will be in the same array
+function groupByDay(games: Array<GameInfo>): Array<GameInfoDayProps> {
     //Declares the return
     let returnValue: Array<GameInfoDayProps> = [];
     //Get the dates without duplicates
@@ -32,19 +34,19 @@ function splitGames(games: Array<GameInfo>): Array<GameInfoDayProps> {
 }
 const GameInfoDay: React.FC<GameInfoDayProps> = ({ day, games }: GameInfoDayProps) => {
     return (
-        <div>
-            <h3>{day}</h3>
-            <ListGroup>
+        <div className={styles['game-info-day-container']}>
+            <Moment format="DD-MM-YYYY" date={day} className={styles['day']}/>
+            <ListGroup className={styles['list-group']}>
                 {games.map((element) => <GameInfoComponent key={element.id} {...element} />)}
             </ListGroup>
         </div>
     );
 };
 const GameSchedule: React.FC<Props> = ({ title, games }: Props) => {
-    const gameByDate: Array<GameInfoDayProps> = splitGames(games);
+    const gameByDate: Array<GameInfoDayProps> = groupByDay(games);
     console.log(gameByDate);
     return (
-        <div>
+        <div className={styles['']}>
             <h3>
                 {title}
             </h3>
