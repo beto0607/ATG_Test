@@ -59,6 +59,7 @@ type GameResponse = {
 };
 
 export interface ApplicationState {
+    text: string;
     gameSchedule: GameSchedule;
     gameData: GameResponse;
 }
