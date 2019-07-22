@@ -7,13 +7,16 @@ import { Container, Row, Col, Alert } from "react-bootstrap";
 import { ApplicationState } from '../../types/index';
 
 //Title component for isolate logic
-interface TitleProps { text: string; betType: string; };
+interface TitleProps {
+    text: string;
+    betType: string;
+};
 const Title: React.FC<TitleProps> = ({ text, betType }: TitleProps) => (
     <Alert variant={!text ? 'info' : (!betType ? 'danger' : 'success')}>
         <h2>{!text ? 'You can search for a Game now' : (betType ? `Bet type: ${betType}` : `Game "${text}" not found`)}</h2>
     </Alert>
 );
-
+// Info section
 interface ConnectedInfoSectionProps {
     text: string;
     gameSchedule: GameScheduleType;
@@ -35,13 +38,11 @@ const ConnectedInfoSection: React.FC<ConnectedInfoSectionProps> = ({ text, gameS
         </Row>
     </Container>
 );
-
-function mapStateToProps(state: ApplicationState) {
+const mapStateToProps = (state: ApplicationState) => {
     return {
         text: state.text,
         gameSchedule: state.gameSchedule
     };
 }
-
 const InfoSection = connect(mapStateToProps)(ConnectedInfoSection);
 export default InfoSection;

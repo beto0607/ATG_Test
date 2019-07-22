@@ -13,23 +13,24 @@ interface GameInfoDayProps {
     day: string;
     games: Array<GameInfo>;
 }
+
 // Get the first part of a ISO Date type string
 function getDateFromString(text: string): string { return text.split('T')[0] }
+
 // Splits the games array into several arrays by day(YYYY-MM-DD)
 // The games of the same day will be in the same array
 function groupByDay(games: Array<GameInfo>): Array<GameInfoDayProps> {
-    //Declares the return
     let returnValue: Array<GameInfoDayProps> = [];
-    //Get the dates without duplicates
+    // Get the dates without duplicates
     let dates: Set<string> = new Set(games.map((element) => getDateFromString(element.startTime)));
-    //For each date, gets the games for that date and pushed the information in retunValue
+    // Create the array
     dates.forEach((value: string) => {
         returnValue.push({
             day: value,
+            // Gets the games for a day 
             games: games.filter(e => getDateFromString(e.startTime) === value)
         });
     })
-    //If games is empty it'll return a empty array
     return returnValue;
 }
 const GameInfoDay: React.FC<GameInfoDayProps> = ({ day, games }: GameInfoDayProps) => {

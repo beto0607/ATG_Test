@@ -20,9 +20,9 @@ export type GameInfo = {
 //ENDPOINT RESPONSE
 //https://www.atg.se/services/racinginfo/v1/api/products/<gameType>
 export type GameSchedule = {
-    betType: string,
-    upcoming: Array<GameInfo>,
-    results: Array<GameInfo>
+    betType: string;
+    upcoming: Array<GameInfo>;
+    results: Array<GameInfo>;
 };
 export type Person = {
     firstName: string,

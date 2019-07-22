@@ -1,14 +1,5 @@
-export const GET_GAME_SCHEDULE = "GET_GAME_SCHEDULE";
-export type GET_GAME_SCHEDULE = typeof GET_GAME_SCHEDULE;
-
 export const GAME_SCHEDULE_LOADED = "GAME_SCHEDULE_LOADED";
 export type GAME_SCHEDULE_LOADED = typeof GAME_SCHEDULE_LOADED;
-
-export const GET_GAME_DATA = "GET_GAME_DATA";
-export type GET_GAME_DATA = typeof GET_GAME_DATA;
-
-export const LOAD_GAME_DATA = "LOAD_GAME_DATA";
-export type LOAD_GAME_DATA = typeof LOAD_GAME_DATA;
 
 export const GAME_DATA_LOADED = "GAME_DATA_LOADED";
 export type GAME_DATA_LOADED = typeof GAME_DATA_LOADED;

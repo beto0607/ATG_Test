@@ -6,6 +6,8 @@ import { GameData } from '../types';
 // Obtains a GameSchedule from proxy.
 export const getGameSchedule = (gameType: string): ThunkAction<Promise<void>, {}, {}, AnyAction> => {
     return async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => {
+        // Gets the GameSchedule for a text
+        // If the text didn't change, GameSchedule it's reloaded
         return fetch(`http://localhost:3001/api/products/${gameType}`)
             .then(response => response.json())
             .then(json => {

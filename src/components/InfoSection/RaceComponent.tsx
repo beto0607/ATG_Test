@@ -4,8 +4,7 @@ import { Race, RaceStart } from '../../types/index';
 import Moment from "react-moment";
 import styles from './race.module.scss';
 
-interface StartProps extends RaceStart { }
-const StartComponent: React.FC<StartProps> = ({ number, horse, driver }: StartProps) => {
+const StartComponent: React.FC<RaceStart> = ({ number, horse, driver }: RaceStart) => {
     const [open, setOpen] = useState(false);
     return (
         <div onClick={() => setOpen(!open)} className={styles['start-container']}>
@@ -23,8 +22,7 @@ const StartComponent: React.FC<StartProps> = ({ number, horse, driver }: StartPr
         </div>
     )
 };
-interface RaceProps extends Race { }
-export const RaceComponent: React.FC<RaceProps> = ({ id, date, name, number, scheduledStartTime, starts }: RaceProps) => {
+export const RaceComponent: React.FC<Race> = ({ id, name, number, scheduledStartTime, starts }: Race) => {
     return (
         <div className={styles['race-container']}>
             <div className={styles['race-title-container']}>
@@ -35,16 +33,8 @@ export const RaceComponent: React.FC<RaceProps> = ({ id, date, name, number, sch
                     Start time:
                     <Moment date={scheduledStartTime} format='HH:mm:ss' />
                 </Alert>
-
             </div>
             {starts.map(start => <StartComponent key={`${id}_${start.number}`} {...start} />)}
         </div>
     );
 };
-
-/*
-
-<Collapse in={open}>
-                <h3>Race #{number} - {name && `Race ${name}`}</h3>
-            </Collapse>
-            */
