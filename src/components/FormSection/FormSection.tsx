@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form, FormControlProps, Button } from 'react-bootstrap';
 import styles from './form-section.module.scss';
 import { connect } from "react-redux";
+import {Dispatch} from 'redux';
 import { getGameSchedule } from "../../actions/actions";
 
 
