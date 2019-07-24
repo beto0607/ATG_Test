@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameInfoDay renders without crashing 1`] = `
+<div
+  className="game-info-day-container"
+>
+  <t
+    ago={false}
+    calendar={false}
+    className="day"
+    date="2019-07-24"
+    decimal={false}
+    element={null}
+    filter={[Function]}
+    format="DD-MM-YYYY"
+    fromNow={false}
+    interval={60000}
+    local={false}
+    onChange={[Function]}
+    titleFormat=""
+    toNow={false}
+    unit={null}
+    unix={false}
+    utc={false}
+    withTitle={false}
+  />
+  <ForwardRef
+    className="list-group"
+  />
+</div>
+`;
+
+exports[`GameSchedule renders without chashing 1`] = `
+<div
+  className=""
+>
+  <h3>
+    a title
+  </h3>
+</div>
+`;
