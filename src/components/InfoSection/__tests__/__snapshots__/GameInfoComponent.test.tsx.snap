@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getDateFromString  should render without crashing 1`] = `
+<Bootstrap(ListGroupItem)
+  className="list-group-item"
+>
+  <Button
+    active={false}
+    aria-controls="example-collapse-text"
+    aria-expanded={false}
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+    variant="primary"
+  >
+    Race starts:
+     
+    <t
+      ago={false}
+      calendar={false}
+      date="2019-07-24T12:45:47.450Z"
+      decimal={false}
+      element={null}
+      filter={[Function]}
+      format="HH:mm"
+      fromNow={false}
+      interval={0}
+      local={false}
+      onChange={[Function]}
+      titleFormat=""
+      toNow={false}
+      unit={null}
+      unix={false}
+      utc={false}
+      withTitle={false}
+    />
+  </Button>
+  <Collapse
+    appear={false}
+    dimension="height"
+    getDimensionValue={[Function]}
+    in={false}
+    mountOnEnter={false}
+    timeout={300}
+    unmountOnExit={false}
+  >
+    <div>
+      <Connect(GameDataComponentConnected)
+        load={false}
+        parent_id=""
+      />
+    </div>
+  </Collapse>
+</Bootstrap(ListGroupItem)>
+`;
