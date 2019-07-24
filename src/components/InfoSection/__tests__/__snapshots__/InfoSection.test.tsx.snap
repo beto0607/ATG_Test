@@ -17,15 +17,11 @@ exports[`ConnectedInfoSection renders without crashing 1`] = `
     <Col
       md={6}
       xs={12}
-    >
-      0
-    </Col>
+    />
     <Col
       md={6}
       xs={12}
-    >
-      0
-    </Col>
+    />
   </Bootstrap(Row)>
 </Container>
 `;
