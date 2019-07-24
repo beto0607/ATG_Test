@@ -25,15 +25,15 @@ export const ConnectedInfoSection: React.FC<ConnectedInfoSectionProps> = ({ text
     <Container className={styles['info-section']}>
         <Row>
             <Col>
-                <Title text={text} betType={gameSchedule.betType || ''} />
+                <Title text={text} betType={gameSchedule ? gameSchedule.betType : ''} />
             </Col>
         </Row>
         <Row>
             <Col xs={12} md={6}>
-                {gameSchedule.upcoming.length && <GameSchedule title={"Closests upcomings"} games={gameSchedule.upcoming || []} />}
+                {gameSchedule && gameSchedule.upcoming.length ? <GameSchedule title={"Closests upcomings"} games={gameSchedule.upcoming || []} />: null}
             </Col>
             <Col xs={12} md={6}>
-                {gameSchedule.results.length && <GameSchedule title={"Closets results"} games={gameSchedule.results || []} />}
+                {gameSchedule && gameSchedule.results.length ? <GameSchedule title={"Closets results"} games={gameSchedule.results || []} />: null}
             </Col>
         </Row>
     </Container>

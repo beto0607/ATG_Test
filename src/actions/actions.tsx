@@ -1,9 +1,14 @@
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
-import { GAME_SCHEDULE_LOADED, GAME_DATA_LOADED } from '../constants/action-types';
-import { GameData } from '../types';
+import { GAME_SCHEDULE_LOADED, GAME_DATA_LOADED, GameScheduleLoadedAction, GameDataLoadedAction, LoadedActions } from '../types/actions';
+import { GameData, GameSchedule } from '../types';
 
-
+export const createGameDataLoadedAction = (data?: GameData): GameDataLoadedAction => {
+    return data ? { type: GAME_DATA_LOADED, gameData: data } : { type: GAME_DATA_LOADED };
+}
+export const createGameScheduleLoadedAction = (text: string, data?: GameSchedule | any): GameScheduleLoadedAction => {
+    return { type: GAME_SCHEDULE_LOADED, text: text, gameSchedule: data };
+}
 // Obtains a GameSchedule from proxy.
 export const getGameSchedule = (gameType: string): ThunkAction<Promise<void>, {}, {}, AnyAction> => {
     return async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => {
@@ -12,10 +17,10 @@ export const getGameSchedule = (gameType: string): ThunkAction<Promise<void>, {}
         return fetch(`http://localhost:3001/api/products/${gameType}`)
             .then(response => response.json())
             .then(json => {
-                dispatch({ type: GAME_SCHEDULE_LOADED, text: gameType, gameSchedule: json });
+                dispatch(createGameScheduleLoadedAction(gameType, json));
             }).catch((err) => {
                 console.error(err);
-                dispatch({ type: GAME_SCHEDULE_LOADED, text: gameType});
+                dispatch(createGameScheduleLoadedAction(gameType));
             });
     }
 }
@@ -27,10 +32,10 @@ export const loadGameData = (gameId: string): ThunkAction<Promise<void>, {}, {},
             return fetch(`http://localhost:3001/api/games/${gameId}`)
                 .then(response => response.json())
                 .then(json => {
-                    dispatch({ type: GAME_DATA_LOADED, payload: json });
+                    dispatch(createGameDataLoadedAction(json));
                 }).catch((err) => {
                     console.error(err);
-                    dispatch({ type: GAME_DATA_LOADED });
+                    dispatch(createGameDataLoadedAction());
                 });
         }
     }

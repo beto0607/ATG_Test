@@ -10,7 +10,7 @@ export type GAME_DATA_LOADED = typeof GAME_DATA_LOADED;
 export interface GameScheduleLoadedAction {
     type: typeof GAME_SCHEDULE_LOADED;
     text: string;
-    gameSchedule?: GameSchedule;
+    gameSchedule?: GameSchedule | null;
 }
 
 export interface GameDataLoadedAction {
