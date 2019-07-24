@@ -1,4 +1,4 @@
-import { GAME_SCHEDULE_LOADED, GAME_DATA_LOADED } from '../constants/action-types';
+import { GAME_SCHEDULE_LOADED, GAME_DATA_LOADED, LoadedActions, AppActions } from '../constants/action-types';
 import { ApplicationState } from '../types/index';
 
 // Initial state
@@ -12,21 +12,19 @@ const initState: ApplicationState = {
     gameData: []
 };
 
-const rootReducer = (state: ApplicationState = initState, action: any) => {
+export const loadedReducer = (state: ApplicationState = initState, action: LoadedActions) => {
     switch (action.type) {
-        // GameSchedule loaded
         case GAME_SCHEDULE_LOADED:
+            if (!action.gameSchedule) {return { ...state, text: action.text }}
             return {
                 ...state,
-                text: action.payload.text,
-                gameSchedule: { ...action.payload.gameSchedule }
+                text: action.text,
+                gameSchedule: { ...action.gameSchedule }
             };
-        // GameData loaded
         case GAME_DATA_LOADED:
-            if (action.payload.gameInfo === {}) { return { ...state } }
-            return { ...state, gameData: [...state.gameData, action.payload.gameInfo] };
+            if (!action.gameData) { return { ...state } }
+            return { ...state, gameData: [...state.gameData, action.gameData] };
         default:
             return state;
     }
 };
-export default rootReducer;

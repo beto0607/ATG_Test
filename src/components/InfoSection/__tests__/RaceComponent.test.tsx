@@ -27,7 +27,7 @@ const mockRace: Race = {
     id: 'an_id',
     name: 'a_name',
     number: 1,
-    scheduledStartTime: new Date().toISOString(),
+    scheduledStartTime: "2019-07-24T11:20:04.492Z",
     starts: []
 };
 describe('StartComponent', () => {

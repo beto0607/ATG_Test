@@ -1,21 +1,6 @@
-type TrackInfo = {
-    id: number,
-    name: string
-};
-type FavoriteInfo = {
-    raceId: string,
-    legNumber: number,
-    start: {
-        number: number,
-        name: string,
-        distribution: number
-    }
-};
 export type GameInfo = {
     id: string,
-    startTime: string, // YYYY-MM-DDThh:mm:ss
-    tracks: Array<TrackInfo>,
-    favorites: Array<FavoriteInfo>
+    startTime: string // YYYY-MM-DDThh:mm:ss
 }
 //ENDPOINT RESPONSE
 //https://www.atg.se/services/racinginfo/v1/api/products/<gameType>

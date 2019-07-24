@@ -10,9 +10,7 @@ const dateExample: string = "2019-07-24T11:20:04.492Z";
 const dateExample2: string = "2019-07-25T11:20:04.492Z";
 const mockGameInfo: GameInfo = {
     id: "1",
-    startTime: dateExample,
-    tracks: [],
-    favorites: []
+    startTime: dateExample
 };
 const mockGameInfoDayProps: GameInfoDayProps = {
     day: '2019-07-24',

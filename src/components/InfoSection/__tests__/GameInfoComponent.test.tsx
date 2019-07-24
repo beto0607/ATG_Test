@@ -7,9 +7,7 @@ import GameInfoComponent from '../GameInfoComponent';
 
 const mockGameInfo: GameInfo = {
     id: '',
-    startTime: "2019-07-24T12:45:47.450Z",
-    favorites: [],
-    tracks: []
+    startTime: "2019-07-24T12:45:47.450Z"
 };
 describe('getDateFromString ', () => {
     it('should render without crashing', () => {

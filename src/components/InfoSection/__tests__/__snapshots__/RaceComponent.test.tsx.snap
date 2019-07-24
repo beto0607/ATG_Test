@@ -33,7 +33,7 @@ exports[`RaceComponent renders without crashing 1`] = `
       <t
         ago={false}
         calendar={false}
-        date="2019-07-24T11:14:42.357Z"
+        date="2019-07-24T11:20:04.492Z"
         decimal={false}
         element={null}
         filter={[Function]}
@@ -83,7 +83,7 @@ exports[`RaceComponent renders without crashing, name can be empty 1`] = `
       <t
         ago={false}
         calendar={false}
-        date="2019-07-24T11:14:42.357Z"
+        date="2019-07-24T11:20:04.492Z"
         decimal={false}
         element={null}
         filter={[Function]}

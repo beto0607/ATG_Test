@@ -31,9 +31,7 @@ describe('Title', () => {
 
 const mockGameInfo: GameInfo = {
     id: 'an_id',
-    startTime: 'a_start_time',
-    tracks: [],
-    favorites: []
+    startTime: 'a_start_time'
 };
 describe('ConnectedInfoSection', () => {
     it('renders without crashing', () => {
