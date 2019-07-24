@@ -55,8 +55,8 @@ describe('RaceComponent', () => {
         const component = shallow((<RaceComponent {...props} />));
         expect(toJson(component)).toMatchSnapshot()
     });
-    it('renders without crashing, name can be null', () => {
-        const props: Race = {...mockRace, name: null};
+    it('renders without crashing, name can be empty', () => {
+        const props: Race = {...mockRace, name:''};
         const component = shallow((<RaceComponent {...props} />));
         expect(toJson(component)).toMatchSnapshot()
     });

@@ -33,7 +33,7 @@ exports[`RaceComponent renders without crashing 1`] = `
       <t
         ago={false}
         calendar={false}
-        date="2019-07-24T11:12:18.286Z"
+        date="2019-07-24T11:14:42.357Z"
         decimal={false}
         element={null}
         filter={[Function]}
@@ -54,7 +54,7 @@ exports[`RaceComponent renders without crashing 1`] = `
 </div>
 `;
 
-exports[`RaceComponent renders without crashing, name can be null 1`] = `
+exports[`RaceComponent renders without crashing, name can be empty 1`] = `
 <div
   className="race-container"
 >
@@ -83,7 +83,7 @@ exports[`RaceComponent renders without crashing, name can be null 1`] = `
       <t
         ago={false}
         calendar={false}
-        date="2019-07-24T11:12:18.286Z"
+        date="2019-07-24T11:14:42.357Z"
         decimal={false}
         element={null}
         filter={[Function]}
