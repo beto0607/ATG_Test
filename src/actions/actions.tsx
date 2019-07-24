@@ -1,6 +1,6 @@
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
-import { GAME_SCHEDULE_LOADED, GAME_DATA_LOADED, GameScheduleLoadedAction, GameDataLoadedAction, LoadedActions } from '../types/actions';
+import { GAME_SCHEDULE_LOADED, GAME_DATA_LOADED, GameScheduleLoadedAction, GameDataLoadedAction } from '../types/actions';
 import { GameData, GameSchedule } from '../types';
 
 export const createGameDataLoadedAction = (data?: GameData): GameDataLoadedAction => {
