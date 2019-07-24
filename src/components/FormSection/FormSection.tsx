@@ -2,20 +2,23 @@ import React, { useState } from 'react';
 import { Form, FormControlProps, Button } from 'react-bootstrap';
 import styles from './form-section.module.scss';
 import { connect } from "react-redux";
-import {Dispatch} from 'redux';
 import { getGameSchedule } from "../../actions/actions";
 
-
-const ConnectedForm: React.FC = (props: any) => {
+export interface ConnectedFormProps {
+    getGameSchedule: any;
+};
+export const ConnectedForm: React.FC<ConnectedFormProps> = ({ getGameSchedule }: ConnectedFormProps) => {
     const [text, setText] = useState('');
-    const handleSumbit = (event: React.FormEvent<HTMLFormElement>, getGameSchedule: any) => {
+    const handleSumbit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        getGameSchedule(text);
+        if (text.length) {
+            getGameSchedule(text);
+        }
     };
     return (
         <div className={styles['form-section']}>
-            <Form onSubmit={(event: React.FormEvent<HTMLFormElement>) => { handleSumbit(event, props.getGameSchedule); }}>
-                <Form.Group controlId="formBasicEmail">
+            <Form onSubmit={handleSumbit} noValidate={true} action='#'>
+                <Form.Group controlId="gameType">
                     <Form.Label>Search for a game</Form.Label>
                     <Form.Control
                         type="text"

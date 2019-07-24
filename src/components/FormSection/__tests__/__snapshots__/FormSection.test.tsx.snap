@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConnectedForm renders without crashing given the required props 1`] = `
+<div
+  className="form-section"
+>
+  <Form
+    action="#"
+    inline={false}
+    noValidate={true}
+    onSubmit={[Function]}
+  >
+    <FormGroup
+      controlId="gameType"
+    >
+      <FormLabel
+        column={false}
+        srOnly={false}
+      >
+        Search for a game
+      </FormLabel>
+      <FormControl
+        onChange={[Function]}
+        placeholder="Enter game type"
+        type="text"
+      />
+    </FormGroup>
+    <Button
+      active={false}
+      block={true}
+      disabled={true}
+      type="submit"
+      variant="primary"
+    >
+      Search
+    </Button>
+  </Form>
+</div>
+`;

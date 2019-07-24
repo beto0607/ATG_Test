@@ -1,9 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 import App from './App';
+import toJson from 'enzyme-to-json'
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+describe('App', () => {
+  it('renders without crashing without props', () => {
+    const wrapper = shallow(<App />);
+    expect(toJson(wrapper)).toMatchSnapshot()
+  });
+  it('renders without crashing with props', () => {
+    const props = { any: 'any' };
+    const wrapper = shallow(<App {...props} />);
+    expect(toJson(wrapper)).toMatchSnapshot()
+  });
 });
