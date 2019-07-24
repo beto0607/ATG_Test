@@ -4,13 +4,13 @@ import { loadGameData } from "../../actions/actions";
 import { ApplicationState, GameData, Race } from '../../types/index';
 import { RaceComponent } from './RaceComponent';
 
-interface GameDataProps {
+export interface GameDataProps {
     parent_id: string;
     gameData: GameData | null;
     loadGameData: any;
     load: boolean;
 }
-const GameDataComponentConnected: React.FC<GameDataProps> = ({ parent_id, load, gameData, loadGameData }: GameDataProps) => {
+export const GameDataComponentConnected: React.FC<GameDataProps> = ({ parent_id, load, gameData, loadGameData }: GameDataProps) => {
     // Loads the game data only when the component is visible and only one time.
     if (load && !gameData) { loadGameData(parent_id); }
     return (
