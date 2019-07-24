@@ -7,21 +7,21 @@ import { Container, Row, Col, Alert } from "react-bootstrap";
 import { ApplicationState } from '../../types/index';
 
 //Title component for isolate logic
-interface TitleProps {
+export interface TitleProps {
     text: string;
     betType: string;
 };
-const Title: React.FC<TitleProps> = ({ text, betType }: TitleProps) => (
+export const Title: React.FC<TitleProps> = ({ text, betType }: TitleProps) => (
     <Alert variant={!text ? 'info' : (!betType ? 'danger' : 'success')}>
         <h2>{!text ? 'You can search for a Game now' : (betType ? `Bet type: ${betType}` : `Game "${text}" not found`)}</h2>
     </Alert>
 );
 // Info section
-interface ConnectedInfoSectionProps {
+export interface ConnectedInfoSectionProps {
     text: string;
     gameSchedule: GameScheduleType;
 };
-const ConnectedInfoSection: React.FC<ConnectedInfoSectionProps> = ({ text, gameSchedule }: ConnectedInfoSectionProps) => (
+export const ConnectedInfoSection: React.FC<ConnectedInfoSectionProps> = ({ text, gameSchedule }: ConnectedInfoSectionProps) => (
     <Container className={styles['info-section']}>
         <Row>
             <Col>
@@ -30,10 +30,10 @@ const ConnectedInfoSection: React.FC<ConnectedInfoSectionProps> = ({ text, gameS
         </Row>
         <Row>
             <Col xs={12} md={6}>
-                {gameSchedule.upcoming && <GameSchedule title={"Closests upcomings"} games={gameSchedule.upcoming || []} />}
+                {gameSchedule.upcoming.length && <GameSchedule title={"Closests upcomings"} games={gameSchedule.upcoming || []} />}
             </Col>
             <Col xs={12} md={6}>
-                {gameSchedule.results && <GameSchedule title={"Closets results"} games={gameSchedule.results || []} />}
+                {gameSchedule.results.length && <GameSchedule title={"Closets results"} games={gameSchedule.results || []} />}
             </Col>
         </Row>
     </Container>

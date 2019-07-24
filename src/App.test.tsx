@@ -8,9 +8,4 @@ describe('App', () => {
     const wrapper = shallow(<App />);
     expect(toJson(wrapper)).toMatchSnapshot()
   });
-  it('renders without crashing with props', () => {
-    const props = { any: 'any' };
-    const wrapper = shallow(<App {...props} />);
-    expect(toJson(wrapper)).toMatchSnapshot()
-  });
 });
