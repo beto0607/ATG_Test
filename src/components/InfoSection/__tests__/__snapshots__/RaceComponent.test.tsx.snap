@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RaceComponent renders without crashing 1`] = `
+<div
+  className="race-container"
+>
+  <div
+    className="race-title-container"
+  >
+    <Alert
+      closeLabel="Close alert"
+      show={true}
+      transition={[Function]}
+      variant="info"
+    >
+      <span>
+        #
+        1
+         
+        <strong>
+          - 
+          a_name
+        </strong>
+      </span>
+    </Alert>
+    <Alert
+      closeLabel="Close alert"
+      show={true}
+      transition={[Function]}
+      variant="info"
+    >
+      Start time:
+      <t
+        ago={false}
+        calendar={false}
+        date="2019-07-24T11:12:18.286Z"
+        decimal={false}
+        element={null}
+        filter={[Function]}
+        format="HH:mm:ss"
+        fromNow={false}
+        interval={60000}
+        local={false}
+        onChange={[Function]}
+        titleFormat=""
+        toNow={false}
+        unit={null}
+        unix={false}
+        utc={false}
+        withTitle={false}
+      />
+    </Alert>
+  </div>
+</div>
+`;
+
+exports[`RaceComponent renders without crashing, name can be null 1`] = `
+<div
+  className="race-container"
+>
+  <div
+    className="race-title-container"
+  >
+    <Alert
+      closeLabel="Close alert"
+      show={true}
+      transition={[Function]}
+      variant="info"
+    >
+      <span>
+        #
+        1
+         
+      </span>
+    </Alert>
+    <Alert
+      closeLabel="Close alert"
+      show={true}
+      transition={[Function]}
+      variant="info"
+    >
+      Start time:
+      <t
+        ago={false}
+        calendar={false}
+        date="2019-07-24T11:12:18.286Z"
+        decimal={false}
+        element={null}
+        filter={[Function]}
+        format="HH:mm:ss"
+        fromNow={false}
+        interval={60000}
+        local={false}
+        onChange={[Function]}
+        titleFormat=""
+        toNow={false}
+        unit={null}
+        unix={false}
+        utc={false}
+        withTitle={false}
+      />
+    </Alert>
+  </div>
+</div>
+`;
+
+exports[`StartComponent renders without crashing 1`] = `
+<div
+  className="start-container"
+  onClick={[Function]}
+>
+  <div
+    className="start-title-container"
+  >
+    <Badge
+      pill={false}
+      variant="info"
+    >
+      Start: #
+      1
+    </Badge>
+    <span>
+      Horse: 
+      <strong>
+        horse_one
+      </strong>
+    </span>
+    <span>
+      Driver: 
+      <strong>
+        driver_first_name driver_last_name
+      </strong>
+    </span>
+  </div>
+  <Collapse
+    appear={false}
+    dimension="height"
+    getDimensionValue={[Function]}
+    in={false}
+    mountOnEnter={false}
+    timeout={300}
+    unmountOnExit={false}
+  >
+    <div>
+      <span>
+        Trainer: 
+        trainer_name trainer_last_name
+      </span>
+      <span>
+        Horse father: 
+        father_horse
+      </span>
+    </div>
+  </Collapse>
+</div>
+`;

@@ -4,7 +4,7 @@ import { Race, RaceStart } from '../../types/index';
 import Moment from "react-moment";
 import styles from './race.module.scss';
 
-const StartComponent: React.FC<RaceStart> = ({ number, horse, driver }: RaceStart) => {
+export const StartComponent: React.FC<RaceStart> = ({ number, horse, driver }: RaceStart) => {
     const [open, setOpen] = useState(false);
     return (
         <div onClick={() => setOpen(!open)} className={styles['start-container']}>
